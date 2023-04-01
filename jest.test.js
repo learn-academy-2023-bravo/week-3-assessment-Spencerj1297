@@ -1,34 +1,34 @@
-// describe('fibSeq', () => {
-//     it('returns an array with the Fibonacci sequence from the provdided variable', () => {
-//       expect(fibSeq(fibLength1)).toEqual([1, 1, 2, 3, 5, 8])
-//       expect(fibSeq(fibLength2)).toEqual([1, 1, 2, 3, 5, 8, 13, 21, 34, 55])
-//     })
-//   })
-  
-//   const fibLength1 = 6
-//   // Expected output: [1, 1, 2, 3, 5, 8]
-  
-//   const fibLength2 = 10
-//   // Expected output: [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
-  
-//   // b) Create the function that makes the test pass.
-//   //puesdo code: // Create a funciton called fibSeq.
-//   // Give the function the parameter num 
-//   // Start by making an array to initalize the first two numbers in the sequence.
-//   // Inside of our function create a for loop 
-//   // Start the for loop at index 2 to account for the first two number in the array. 
-//   // Inside of the loop set the variable fibArray[i] equal to fibArray[i-1] and add that to fibArray[i-2]
-//   //outside of the for loop return the fibArray
-//   // 
-  
-//   const fibSeq = (num) => {
-//     let fibArray = [1, 1]
-//       for (let i = 1; i < num; i++){
-//         fibArray[i] = fibArray[i - 1] + fibArray[i - 2]
-//       }
-//   return fibArray
-//   }
-  
+describe('fibSeq', () => {
+  it('returns an array with the Fibonacci sequence from the provdided variable', () => {
+    expect(fibSeq(fibLength1)).toEqual([1, 1, 2, 3, 5, 8])
+    expect(fibSeq(fibLength2)).toEqual([1, 1, 2, 3, 5, 8, 13, 21, 34, 55])
+  })
+})
+
+const fibLength1 = 6
+// Expected output: [1, 1, 2, 3, 5, 8]
+
+const fibLength2 = 10
+// Expected output: [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
+
+// // b) Create the function that makes the test pass.
+// //puesdo code: // Create a funciton called fibSeq.
+// // Give the function the parameter num
+// // Start by making an array to initalize the first two numbers in the sequence.
+// // Inside of our function create a for loop
+// // Start the for loop at index 2 to account for the first two number in the array.
+// // Inside of the loop set the variable fibArray[i] equal to fibArray[i-1] and add that to fibArray[i-2]
+// //outside of the for loop return the fibArray
+// //
+
+const fibSeq = (num) => {
+  let fibArray = [1, 1]
+    for (let i = 2; i < num; i++){
+      fibArray[i] = fibArray[i - 1] + fibArray[i - 2]
+    }
+return fibArray.slice()
+}
+
 
 describe('orderedArray', () => {
     it('returns an array with the values from the object in oder from smallest to largest', () => {
@@ -36,7 +36,7 @@ describe('orderedArray', () => {
       expect(orderedArray(studyMinutesWeek2)).toEqual([10, 15, 20, 45, 60, 65, 100])
     })
   })
-  
+
   const studyMinutesWeek1 = {
     sunday: 90,
     monday: 30,
@@ -47,7 +47,7 @@ describe('orderedArray', () => {
     saturday: 60
   }
   // // Expected output: [15, 15, 20, 30, 30, 60, 90]
-  
+
   const studyMinutesWeek2 = {
     sunday: 100,
     monday: 10,
@@ -57,14 +57,58 @@ describe('orderedArray', () => {
     friday: 15,
     saturday: 65
   }
-  // // Expected output: [10, 15, 20, 45, 60, 65, 100]
-  
-  // // b) Create the function that makes the test pass.
-  //Puesdo Code:
-  // Create the funciton ordered Array that will take in the objects above.
-  // 
-  const orderedArray = (object) => {
-  const values = Object.values(object)
-  return values.sort((a, b) => a-b)
-  }
-  
+// // Expected output: [10, 15, 20, 45, 60, 65, 100]
+
+// // b) Create the function that makes the test pass.
+//Puesdo Code:
+// Create the funciton ordered Array that will take in the objects above.
+//
+const orderedArray = (object) => {
+const values = Object.values(object)
+return values.sort((a, b) => a-b)
+}
+
+
+
+
+describe("arraySum", () => {
+  it("returns a new array with an ", () => {
+    expect(arraySum(accountTransactions1)).toEqual([100, 83, 60, 51])
+    expect(arraySum(accountTransactions2)).toEqual([250, 161, 261, 165])
+    expect(arraySum(accountTransactions3)).toEqual([])
+  })
+})
+
+const accountTransactions1 = [100, -17, -23, -9]
+// Expected output: [100, 83, 60, 51]
+
+const accountTransactions2 = [250, -89, 100, -96]
+// Expected output: [250, 161, 261, 165]
+
+const accountTransactions3 = []
+// Expected output: []
+
+// b) Create the function that makes the test pass.
+// Puesdo: Create the function called arraySum.
+// Give the function the parameter 'array' to be used in the funciton. This will match the datatype of the argument.
+// Create a new variable in the funciton named sum and set it equal to 0 for the baseline.
+//Inside the function use the .map() method to iterate through the origin array.
+// inside .map name the value 'num' for carity.
+// after the arrow syntax place the variable sum += to num so each number in the array will be added to the sum.
+// return sum as the new value for each index.
+
+const arraySum = (array) => {
+  let sum = 0
+  let newArray = array.map((num) => {
+    sum += num
+    return sum
+  })
+  return newArray
+}
+
+//output:
+// PASS  ./code-challenges.test.js
+//  PASS  ./jest.test.js
+
+//  Test Suites: 2 passed, 2 total
+//  Tests:       2 passed, 2 total

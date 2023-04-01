@@ -14,18 +14,18 @@
 
 // a) Create a test with expect statements for each of the variables provided.
 
-// describe('fibSeq', () => {
-//   it('returns an array with the Fibonacci sequence from the provdided variable', () => {
-//     expect(fibSeq(fibLength1)).toEqual([1, 1, 2, 3, 5, 8])
-//     expect(fibSeq(fibLength2)).toEqual([1, 1, 2, 3, 5, 8, 13, 21, 34, 55])
-//   })
-// })
+describe("fibSeq", () => {
+  it("returns an array with the Fibonacci sequence from the provdided variable", () => {
+    expect(fibSeq(fibLength1)).toEqual([1, 1, 2, 3, 5, 8])
+    expect(fibSeq(fibLength2)).toEqual([1, 1, 2, 3, 5, 8, 13, 21, 34, 55])
+  })
+})
 
-// const fibLength1 = 6
-// // Expected output: [1, 1, 2, 3, 5, 8]
+const fibLength1 = 6
+// Expected output: [1, 1, 2, 3, 5, 8]
 
-// const fibLength2 = 10
-// // Expected output: [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
+const fibLength2 = 10
+// Expected output: [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
 
 // // b) Create the function that makes the test pass.
 // //puesdo code: // Create a funciton called fibSeq.
@@ -34,17 +34,22 @@
 // // Inside of our function create a for loop
 // // Start the for loop at index 2 to account for the first two number in the array.
 // // Inside of the loop set the variable fibArray[i] equal to fibArray[i-1] and add that to fibArray[i-2]
-// //outside of the for loop return the fibArray
+// //outside of the for loop return the fibArray and add the .slice method with no argument to get rid of 0 in the final array.
 // //
 
-// const fibSeq = (num) => {
-//   let fibArray = [1, 1]
-//     for (let i = 1; i < num; i++){
-//       fibArray[i] = fibArray[i - 1] + fibArray[i - 2]
-//     }
-// return fibArray
-// }
-// console.log(fibSeq(fibLength1))
+const fibSeq = (num) => {
+  let fibArray = [1, 1]
+  for (let i = 2; i < num; i++) {
+    fibArray[i] = fibArray[i - 1] + fibArray[i - 2]
+  }
+  return fibArray.slice()
+}
+//output:
+// PASS  ./code-challenges.test.js
+// PASS  ./jest.test.js
+
+// Test Suites: 2 passed, 2 total
+// Tests:       6 passed, 6 total
 
 // --------------------2) Create a function that takes in an object and returns an array of the values sorted from least to greatest.
 // Hint: Check out this resource: Object.values() https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Object/values
@@ -130,3 +135,20 @@ const accountTransactions3 = []
 // Expected output: []
 
 // b) Create the function that makes the test pass.
+
+// Puesdo code: Create the function called arraySum.
+// Give the function the parameter 'array' to be used in the funciton. This will match the datatype of the argument.
+// Create a new variable in the funciton named sum and set it equal to 0 for the baseline.
+//Inside the function use the .map() method to iterate through the origin array.
+// inside .map name the value 'num' for carity.
+// after the arrow syntax place the variable sum += to num so each number in the array will be added to the sum.
+// return sum as the new value for each index.
+
+const arraySum = (array) => {
+  let sum = 0
+  let newArray = array.map((num) => {
+    sum += num
+    return sum
+  })
+  return newArray
+}
